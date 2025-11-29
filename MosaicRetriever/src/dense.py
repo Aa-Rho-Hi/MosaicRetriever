@@ -13,7 +13,8 @@ from tqdm import tqdm
 
 @dataclass
 class DenseConfig:
-    model_name: str = "multi-qa-mpnet-base-dot-v1"
+    # Default to a lightweight encoder to keep footprint and build time lower.
+    model_name: str = "all-MiniLM-L6-v2"
     batch_size: int = 64
     # Force CPU by default to avoid occasional MPS/accelerator segfaults on macOS.
     device: Optional[str] = "cpu"
